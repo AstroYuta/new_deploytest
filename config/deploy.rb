@@ -2,7 +2,7 @@
 lock '3.4.1'
 
 set :application, 'deploy_tester'
-set :repo_url, 'git@github.com:AstroYuta/deploytest.git'
+set :repo_url, 'git@github.com:AstroYuta/new_deploytest.git'
 
 set :branch, 'master'
 set :deploy_to, '/var/www/deploy_tester'
