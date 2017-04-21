@@ -12,6 +12,8 @@ set :pty, true
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/system public/assets}
 set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }
 set :keep_releases, 5
+set :bundle_gemfile,  "/Users/yuta/github-working/deploytest/deploy_tester/Gemfile"
+set :bundle_flags, "--quiet --binstubs --shebang ruby-local-exec"
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do

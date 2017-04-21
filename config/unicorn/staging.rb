@@ -10,10 +10,9 @@ pid "/var/www/deploy_tester/shared/tmp/pids/unicorn.pid"
 stderr_path "#{@app_path}/log/unicorn.stderr.log"
 stdout_path "#{@app_path}/log/unicorn.stdout.log"
 
-root = "/var/www/deploy_tester" 
-before_exec do |server| 
-ENV['BUNDLE_GEMFILE'] = "#{root}/Gemfile" 
-end 
+before_fork do |server, worker|
+  ENV['BUNDLE_GEMFILE'] = File.expand_path('Gemfile', ENV['RAILS_ROOT'])
+end
 
 before_fork do |server, worker|
   if defined?(ActiveRecord::Base)
