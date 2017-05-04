@@ -15,6 +15,9 @@ set :keep_releases, 5
 set :bundle_gemfile,  "/Users/yuta/github-working/deploytest/deploy_tester/Gemfile"
 set :bundle_flags, "--quiet --binstubs --shebang ruby-local-exec"
 
+set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+set :unicorn_config_path, "#{release_path}/config/unicorn.rb"
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
 
